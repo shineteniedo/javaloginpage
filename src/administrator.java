@@ -688,15 +688,7 @@ public class administrator extends javax.swing.JFrame {
                  ResultSet rs1 = del3.executeQuery(dell3);
                  rs1.next();
                     
-                    
-                  Statement del4 = cont.createStatement();
-                  String dell4 = "DELETE FROM `pro_cashier` WHERE `pro_id`= "+del2+";";
-                 ResultSet rs2 = del4.executeQuery(dell4);
-                 rs2.next();
-                    
-                    
-                    
-                    
+               
                     JOptionPane.showMessageDialog(rootPane, "Successfully Deleted");
                     products();
 
