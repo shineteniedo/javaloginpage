@@ -1019,7 +1019,7 @@ public class administrator extends javax.swing.JFrame {
                 model.setValueAt(rs1.getString("fix_price"), kami, 3);
                 model.setValueAt(rs1.getString("pro_roi"), kami, 4);
                 model.setValueAt(rs1.getString("quant_purch"), kami, 5);
-                model.setValueAt(rs1.getString("total_quantity"), kami, 6);
+                model.setValueAt(rs1.getString("total_quant"), kami, 6);
                
                  kami++;
             }
@@ -1055,22 +1055,19 @@ public class administrator extends javax.swing.JFrame {
 
                 PreparedStatement pro=(PreparedStatement) lag.prepareStatement("insert into `stock_product`(`pro_variety`,`reg_price`"
                     + ",`fix_price`,`pro_roi`,`quant_purch`,`total_quant`)values('"+a+"','"+b+"','"+c+"','"+dif+"','"+g+"','"+e+"');");
-
-                pro.executeUpdate();
-                
-                 Statement stmt4 = lag.createStatement();
-                 String declare4 = ("insert into `pro_cashier`(`c_pro_variety`,`c_pro_price`,`c_pro_quantity`"
-                         + "values ('"+a+"','"+c+"','"+f+"');");
-                
-                
-                
+                 pro.executeUpdate();
+               
+               
                  Statement stmt5 = lag.createStatement();
                  String declare5 = "SELECT * FROM `stock_product` WHERE pro_variety='"+a+"'";
                  ResultSet rs5 = stmt5.executeQuery(declare5);
                  rs5.next();
 
                  int proID = rs5.getInt("pro_id");
-                 
+                  
+                 PreparedStatement pro1=(PreparedStatement) lag.prepareStatement("insert into `pro_cashier`(`pro_id`,`c_pro_variety`,`c_pro_price`,`c_pro_quantity`)"
+                         + "values ('"+proID+"','"+a+"','"+c+"','"+f+"');");
+                 pro1.executeUpdate();
                  
                 JOptionPane.showMessageDialog(rootPane,"Successfully added the Product");
                 
