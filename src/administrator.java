@@ -88,10 +88,13 @@ public class administrator extends javax.swing.JFrame {
         jLabel55 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
         fp3 = new javax.swing.JTextField();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tab_productss = new javax.swing.JTable();
         DELT = new javax.swing.JButton();
         VIEW = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        scrolInvent = new javax.swing.JScrollPane();
+        tab_inventory = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tab_pro = new javax.swing.JTable();
         Customers1 = new javax.swing.JPanel();
         Employee = new javax.swing.JPanel();
         Sales = new javax.swing.JPanel();
@@ -374,26 +377,6 @@ public class administrator extends javax.swing.JFrame {
 
         Products1.add(jTabbedPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 440));
 
-        tab_productss.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Product ID", "Variety", "Regular Price", "Fixed Price", "Total ROI", "Quantity Purchased", "Total Quantity"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane4.setViewportView(tab_productss);
-
-        Products1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 880, 250));
-
         DELT.setText("Delete");
         DELT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -420,13 +403,57 @@ public class administrator extends javax.swing.JFrame {
         });
         Products1.add(VIEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 720, 130, -1));
 
+        jPanel5.setLayout(new java.awt.CardLayout());
+
+        tab_inventory.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Inventory ID", "Pro_ID", "Regular Price", "Fixed Price", "Total ROI", "Quantity Purchased", "Total Quantity"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        scrolInvent.setViewportView(tab_inventory);
+
+        jPanel5.add(scrolInvent, "card2");
+
+        tab_pro.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Product Id", "Variety", "Price", "Quantity"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tab_pro);
+
+        jPanel5.add(jScrollPane1, "card3");
+
+        Products1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 880, 250));
+
         jPanel11.add(Products1, "card2");
 
         javax.swing.GroupLayout Customers1Layout = new javax.swing.GroupLayout(Customers1);
         Customers1.setLayout(Customers1Layout);
         Customers1Layout.setHorizontalGroup(
             Customers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 905, Short.MAX_VALUE)
+            .addGap(0, 901, Short.MAX_VALUE)
         );
         Customers1Layout.setVerticalGroup(
             Customers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -439,7 +466,7 @@ public class administrator extends javax.swing.JFrame {
         Employee.setLayout(EmployeeLayout);
         EmployeeLayout.setHorizontalGroup(
             EmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 905, Short.MAX_VALUE)
+            .addGap(0, 901, Short.MAX_VALUE)
         );
         EmployeeLayout.setVerticalGroup(
             EmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -452,7 +479,7 @@ public class administrator extends javax.swing.JFrame {
         Sales.setLayout(SalesLayout);
         SalesLayout.setHorizontalGroup(
             SalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 905, Short.MAX_VALUE)
+            .addGap(0, 901, Short.MAX_VALUE)
         );
         SalesLayout.setVerticalGroup(
             SalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -493,7 +520,7 @@ public class administrator extends javax.swing.JFrame {
                     .addGroup(InventoryLayout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addComponent(text_pro, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
         InventoryLayout.setVerticalGroup(
             InventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -514,7 +541,7 @@ public class administrator extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jSplitPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSplitPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1360, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -532,7 +559,7 @@ public class administrator extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1110, Short.MAX_VALUE)
+            .addGap(0, 1483, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -670,12 +697,13 @@ public class administrator extends javax.swing.JFrame {
 
     private void DELTKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DELTKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
-             int del1= tab_productss.getSelectedRow();
+             int del1= tab_inventory.getSelectedRow();
         if (del1 !=-1){
 
             if (JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to delete?", "Delete Product", JOptionPane.YES_NO_OPTION)==0){
 
-                String del2=tab_productss.getValueAt(del1, 0).toString();
+                String inv=tab_inventory.getValueAt(del1, 0).toString();
+                String pro=tab_pro.getValueAt(del1, 0).toString();
                 
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
@@ -684,19 +712,11 @@ public class administrator extends javax.swing.JFrame {
                     Connection cont=DriverManager.getConnection(conURL);
                     
                   Statement del3 = cont.createStatement();
-                  String dell3 = "DELETE FROM `stock_product` WHERE `stock_id`= "+del2+";";
+                  String dell3 = "DELETE FROM `inventory_sell` WHERE `inv_id`= "+inv+";";
                  ResultSet rs1 = del3.executeQuery(dell3);
                  rs1.next();
                     
-                    
-                  Statement del4 = cont.createStatement();
-                  String dell4 = "DELETE FROM `pro_cashier` WHERE `c_pro_id`= "+del2+";";
-                 ResultSet rs2 = del4.executeQuery(dell4);
-                 rs2.next();
-                    
-                    
-                    
-                    
+                
                     JOptionPane.showMessageDialog(rootPane, "Successfully Deleted");
                     products();
 
@@ -712,24 +732,26 @@ public class administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_DELTKeyPressed
 
     private void DELTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELTActionPerformed
-        int del1= tab_productss.getSelectedRow();
+        
+             int del1= tab_inventory.getSelectedRow();
         if (del1 !=-1){
 
             if (JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to delete?", "Delete Product", JOptionPane.YES_NO_OPTION)==0){
 
-                String del2=tab_productss.getValueAt(del1, 0).toString();
-                
+                String del2=tab_inventory.getValueAt(del1, 0).toString();
                 
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
                     String conURL="jdbc:mysql://localhost/system?"
                     + "user=root&password=";
                     Connection cont=DriverManager.getConnection(conURL);
-                    Statement st=cont.createStatement();
-                    Statement st1=cont.createStatement();
-                    st.executeUpdate("DELETE FROM `stock_product` WHERE `stock_id`= "+del2+";");
-                    st1.executeUpdate("DELETE FROM `pro_cashier` WHERE `pro_id`= "+del2+";");
-                           
+                    
+                  Statement del3 = cont.createStatement();
+                  String dell3 = "DELETE FROM `inventory_sell` WHERE `inv_id`= "+del2+";";
+                 ResultSet rs1 = del3.executeQuery(dell3);
+                 rs1.next();
+               
+                    
                     JOptionPane.showMessageDialog(rootPane, "Successfully Deleted");
                     products();
 
@@ -740,6 +762,7 @@ public class administrator extends javax.swing.JFrame {
                 }
 
             }
+        
         }
         
     }//GEN-LAST:event_DELTActionPerformed
@@ -825,8 +848,9 @@ public class administrator extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -836,7 +860,9 @@ public class administrator extends javax.swing.JFrame {
     private javax.swing.JLabel roi1;
     private javax.swing.JTextField rp2;
     private javax.swing.JLabel rp3;
-    private javax.swing.JTable tab_productss;
+    private javax.swing.JScrollPane scrolInvent;
+    private javax.swing.JTable tab_inventory;
+    private javax.swing.JTable tab_pro;
     private javax.swing.JTextField text_pro;
     private javax.swing.JTextField v2;
     private javax.swing.JLabel v3;
@@ -950,10 +976,10 @@ public class administrator extends javax.swing.JFrame {
             Connection con1;
             con1=DriverManager.getConnection(conURL);
             Statement nezir1=con1.createStatement();
-            String sql1 = "select * from stock_product WHERE true";
+            String sql1 = "select * from inventory_sell WHERE true";
           
             if(inName1!=null){
-                sql1 = sql1 + " AND (fix_price like '%"+inName1+"%')";
+                sql1 = sql1 + " AND (pro_fix_price like '%"+inName1+"%')";
               }
             
              
@@ -965,17 +991,17 @@ public class administrator extends javax.swing.JFrame {
             
             while(rs1.next()){
                 model.addRow(new Object[]{});
-                model.setValueAt(rs1.getString("stock_id"), kami, 0);
+                model.setValueAt(rs1.getString("inv_id"), kami, 0);
                 model.setValueAt(rs1.getString("pro_id"), kami, 1);
-                model.setValueAt(rs1.getString("reg_price"), kami, 2);
-                model.setValueAt(rs1.getString("fix_price"), kami, 3);
+                model.setValueAt(rs1.getString("pro_reg_price"), kami, 2);
+                model.setValueAt(rs1.getString("pro_fix_price"), kami, 3);
                 model.setValueAt(rs1.getString("pro_roi"), kami, 4);
-                model.setValueAt(rs1.getString("quant_purch"), kami, 5);
+                model.setValueAt(rs1.getString("pro_quant_purch"), kami, 5);
                 model.setValueAt(rs1.getString("total_quant"), kami, 6);
                
                  kami++;
             }
-           tab_productss.setModel(model);
+           tab_inventory.setModel(model);
             } catch (SQLException ex) {
                 Logger.getLogger(administrator.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1005,21 +1031,22 @@ public class administrator extends javax.swing.JFrame {
                 + "user=root&password=";
                 Connection lag= DriverManager.getConnection(conURL);
 
-                PreparedStatement pro=(PreparedStatement) lag.prepareStatement("insert into `stock_product`(`pro_variety`,`reg_price`"
-                    + ",`fix_price`,`pro_roi`,`quant_purch`,`total_quant`)values('"+a+"','"+b+"','"+c+"','"+dif+"','"+g+"','"+e+"');");
-                 pro.executeUpdate();
                
-               
+                
+                PreparedStatement pro1=(PreparedStatement) lag.prepareStatement("insert into `products`(`pro_variety`,`pro_price`,`pro_quantity`)"
+                         + "values ('"+a+"','"+c+"','"+f+"');");
+                 pro1.executeUpdate();
+                
                  Statement stmt5 = lag.createStatement();
-                 String declare5 = "SELECT * FROM `stock_product` WHERE pro_variety='"+a+"'";
+                 String declare5 = "SELECT * FROM `products` WHERE pro_variety='"+a+"'";
                  ResultSet rs5 = stmt5.executeQuery(declare5);
                  rs5.next();
 
                  int proID = rs5.getInt("pro_id");
                   
-                 PreparedStatement pro1=(PreparedStatement) lag.prepareStatement("insert into `pro_cashier`(`pro_id`,`c_pro_variety`,`c_pro_price`,`c_pro_quantity`)"
-                         + "values ('"+proID+"','"+a+"','"+c+"','"+f+"');");
-                 pro1.executeUpdate();
+                PreparedStatement pro=(PreparedStatement) lag.prepareStatement("insert into `inventory_sell`(`pro_id`,`pro_reg_price`"
+                    + ",`pro_fix_price`,`pro_roi`,`pro_quant_purch`,`total_quant`)values('"+proID+"','"+b+"','"+c+"','"+dif+"','"+g+"','"+e+"');");
+                 pro.executeUpdate();
                  
                 JOptionPane.showMessageDialog(rootPane,"Successfully added the Product");
                 
