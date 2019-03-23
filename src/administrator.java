@@ -93,8 +93,6 @@ public class administrator extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         scrolInvent = new javax.swing.JScrollPane();
         tab_inventory = new javax.swing.JTable();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tab_pro = new javax.swing.JTable();
         Customers1 = new javax.swing.JPanel();
         Employee = new javax.swing.JPanel();
         Sales = new javax.swing.JPanel();
@@ -425,26 +423,6 @@ public class administrator extends javax.swing.JFrame {
 
         jPanel5.add(scrolInvent, "card2");
 
-        tab_pro.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Product Id", "Variety", "Price", "Quantity"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tab_pro);
-
-        jPanel5.add(jScrollPane1, "card3");
-
         Products1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 880, 250));
 
         jPanel11.add(Products1, "card2");
@@ -453,7 +431,7 @@ public class administrator extends javax.swing.JFrame {
         Customers1.setLayout(Customers1Layout);
         Customers1Layout.setHorizontalGroup(
             Customers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 901, Short.MAX_VALUE)
+            .addGap(0, 1153, Short.MAX_VALUE)
         );
         Customers1Layout.setVerticalGroup(
             Customers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,7 +444,7 @@ public class administrator extends javax.swing.JFrame {
         Employee.setLayout(EmployeeLayout);
         EmployeeLayout.setHorizontalGroup(
             EmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 901, Short.MAX_VALUE)
+            .addGap(0, 1153, Short.MAX_VALUE)
         );
         EmployeeLayout.setVerticalGroup(
             EmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -479,7 +457,7 @@ public class administrator extends javax.swing.JFrame {
         Sales.setLayout(SalesLayout);
         SalesLayout.setHorizontalGroup(
             SalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 901, Short.MAX_VALUE)
+            .addGap(0, 1153, Short.MAX_VALUE)
         );
         SalesLayout.setVerticalGroup(
             SalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -520,7 +498,7 @@ public class administrator extends javax.swing.JFrame {
                     .addGroup(InventoryLayout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addComponent(text_pro, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addContainerGap(424, Short.MAX_VALUE))
         );
         InventoryLayout.setVerticalGroup(
             InventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -559,7 +537,7 @@ public class administrator extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1483, Short.MAX_VALUE)
+            .addGap(0, 1110, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -703,7 +681,7 @@ public class administrator extends javax.swing.JFrame {
             if (JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to delete?", "Delete Product", JOptionPane.YES_NO_OPTION)==0){
 
                 String inv=tab_inventory.getValueAt(del1, 0).toString();
-                String pro=tab_pro.getValueAt(del1, 0).toString();
+             
                 
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
@@ -849,7 +827,6 @@ public class administrator extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSplitPane jSplitPane2;
@@ -862,7 +839,6 @@ public class administrator extends javax.swing.JFrame {
     private javax.swing.JLabel rp3;
     private javax.swing.JScrollPane scrolInvent;
     private javax.swing.JTable tab_inventory;
-    private javax.swing.JTable tab_pro;
     private javax.swing.JTextField text_pro;
     private javax.swing.JTextField v2;
     private javax.swing.JLabel v3;
