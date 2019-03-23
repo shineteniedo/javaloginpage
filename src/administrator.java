@@ -684,13 +684,13 @@ public class administrator extends javax.swing.JFrame {
                     Connection cont=DriverManager.getConnection(conURL);
                     
                   Statement del3 = cont.createStatement();
-                  String dell3 = "DELETE FROM `stock_product` WHERE `pro_id`= "+del2+";";
+                  String dell3 = "DELETE FROM `stock_product` WHERE `stock_id`= "+del2+";";
                  ResultSet rs1 = del3.executeQuery(dell3);
                  rs1.next();
                     
                     
                   Statement del4 = cont.createStatement();
-                  String dell4 = "DELETE FROM `pro_cashier` WHERE `pro_id`= "+del2+";";
+                  String dell4 = "DELETE FROM `pro_cashier` WHERE `c_pro_id`= "+del2+";";
                  ResultSet rs2 = del4.executeQuery(dell4);
                  rs2.next();
                     
@@ -719,13 +719,17 @@ public class administrator extends javax.swing.JFrame {
 
                 String del2=tab_productss.getValueAt(del1, 0).toString();
                 
+                
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
                     String conURL="jdbc:mysql://localhost/system?"
                     + "user=root&password=";
                     Connection cont=DriverManager.getConnection(conURL);
                     Statement st=cont.createStatement();
-                    st.executeUpdate("DELETE FROM `products` WHERE `pro_id`= "+del2+";");
+                    Statement st1=cont.createStatement();
+                    st.executeUpdate("DELETE FROM `stock_product` WHERE `stock_id`= "+del2+";");
+                    st1.executeUpdate("DELETE FROM `pro_cashier` WHERE `pro_id`= "+del2+";");
+                           
                     JOptionPane.showMessageDialog(rootPane, "Successfully Deleted");
                     products();
 
@@ -776,64 +780,29 @@ public class administrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Cust;
     private javax.swing.JButton Cust1;
-    private javax.swing.JPanel Customers;
     private javax.swing.JPanel Customers1;
     private javax.swing.JButton DELT;
-    private javax.swing.JButton Emp;
     private javax.swing.JPanel Employee;
-    private javax.swing.JButton Inv;
     private javax.swing.JButton Inv1;
     private javax.swing.JPanel Inventory;
-    private javax.swing.JButton Pro;
     private javax.swing.JButton Pro1;
-    private javax.swing.JPanel Products;
     private javax.swing.JPanel Products1;
-    private javax.swing.JButton Sal;
     private javax.swing.JButton Sal1;
     private javax.swing.JPanel Sales;
     private javax.swing.JButton VIEW;
-    private javax.swing.JLabel dates;
     private javax.swing.JLabel dates1;
-    private javax.swing.JTextField fp;
-    private javax.swing.JLabel fp1;
     private javax.swing.JLabel fp2;
     private javax.swing.JTextField fp3;
     private javax.swing.JLabel id1;
     private javax.swing.JTable inv_table;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
@@ -856,36 +825,19 @@ public class administrator extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JComboBox<String> pk;
     private javax.swing.JComboBox<String> pk1;
-    private javax.swing.JTextField q;
     private javax.swing.JTextField q1;
-    private javax.swing.JLabel roi;
     private javax.swing.JLabel roi1;
-    private javax.swing.JTextField rp;
-    private javax.swing.JLabel rp1;
     private javax.swing.JTextField rp2;
     private javax.swing.JLabel rp3;
     private javax.swing.JTable tab_productss;
-    private javax.swing.JTable table_pro1;
     private javax.swing.JTextField text_pro;
-    private javax.swing.JTextField v;
-    private javax.swing.JLabel v1;
     private javax.swing.JTextField v2;
     private javax.swing.JLabel v3;
     // End of variables declaration//GEN-END:variables
@@ -989,7 +941,7 @@ public class administrator extends javax.swing.JFrame {
 
    void products() {
        try { 
-           String inName1=v2.getText();
+           String inName1=fp3.getText();
           
             try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -1001,7 +953,7 @@ public class administrator extends javax.swing.JFrame {
             String sql1 = "select * from stock_product WHERE true";
           
             if(inName1!=null){
-                sql1 = sql1 + " AND (pro_variety like '%"+inName1+"%')";
+                sql1 = sql1 + " AND (fix_price like '%"+inName1+"%')";
               }
             
              
@@ -1013,8 +965,8 @@ public class administrator extends javax.swing.JFrame {
             
             while(rs1.next()){
                 model.addRow(new Object[]{});
-                model.setValueAt(rs1.getString("pro_id"), kami, 0);
-                model.setValueAt(rs1.getString("pro_variety"), kami, 1);
+                model.setValueAt(rs1.getString("stock_id"), kami, 0);
+                model.setValueAt(rs1.getString("pro_id"), kami, 1);
                 model.setValueAt(rs1.getString("reg_price"), kami, 2);
                 model.setValueAt(rs1.getString("fix_price"), kami, 3);
                 model.setValueAt(rs1.getString("pro_roi"), kami, 4);
