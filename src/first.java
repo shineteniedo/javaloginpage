@@ -342,7 +342,7 @@ public class first extends javax.swing.JFrame {
                                                               tname.setText("");
                                                               PWpass.setText("");
                                                                this.dispose();
-                                                               new Casheir().setVisible(true);
+                                                               new cashiering().setVisible(true);
                                                            }
                                                            else{
                                                                JOptionPane.showMessageDialog(rootPane,"USERNAME AND PASSWORD DON'T MATCH!,"
