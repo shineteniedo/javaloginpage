@@ -17,7 +17,7 @@ public DefaultTableModel ProModel= new javax.swing.table.DefaultTableModel(
 
     },
     new String [] {
-        "Product ID","Variety", "Regular Price", "Fixed Price", "Total ROI", "Quantity Purchased", "Total Quantity"
+        "Inventory ID","Product ID", "Regular Price", "Fixed Price", "Total ROI", "Quantity Purchased", "Total Quantity"
     }
 ){
     boolean[] canEdit = new boolean [] {
