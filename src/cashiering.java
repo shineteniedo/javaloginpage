@@ -32,12 +32,20 @@ public class cashiering extends javax.swing.JFrame {
     public cashiering() {
         initComponents();
         showDate();
+        showTime();
     }
 void showDate() {
         Date d = new Date();
         SimpleDateFormat s = new SimpleDateFormat("yyyy/MM/dd");
-        date1.setText(s.format(d));
+        date.setText(s.format(d));
     }
+void showTime(){
+     
+        Date d = new Date();
+        SimpleDateFormat s = new SimpleDateFormat("hh:mm:ss");
+        time.setText(s.format(d));
+   
+}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -52,7 +60,8 @@ void showDate() {
         LOGOUT = new javax.swing.JButton();
         MILL = new javax.swing.JButton();
         SELL = new javax.swing.JButton();
-        date1 = new javax.swing.JLabel();
+        time = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
         rrr = new javax.swing.JPanel();
         home = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -115,13 +124,36 @@ void showDate() {
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         mill = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tab_cust_mill = new javax.swing.JTable();
+        jPanel12 = new javax.swing.JPanel();
+        m_con = new javax.swing.JTextField();
+        m_loc = new javax.swing.JTextField();
+        m_nam = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel27 = new javax.swing.JLabel();
+        m_ca = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        m_addc = new javax.swing.JTextField();
+        jLabel42 = new javax.swing.JLabel();
+        m_dis = new javax.swing.JComboBox<>();
+        jLabel43 = new javax.swing.JLabel();
+        m_pro = new javax.swing.JTextField();
+        jLabel44 = new javax.swing.JLabel();
+        m_qua = new javax.swing.JComboBox<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tab_sched = new javax.swing.JTable();
+        jSeparator3 = new javax.swing.JSeparator();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        sta = new javax.swing.JComboBox<>();
+        jLabel45 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,8 +243,11 @@ void showDate() {
         });
         jPanel4.add(SELL, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 150, 40));
 
-        date1.setForeground(new java.awt.Color(255, 255, 153));
-        jPanel4.add(date1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 130, 30));
+        time.setForeground(new java.awt.Color(255, 255, 153));
+        jPanel4.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 130, 30));
+
+        date.setForeground(new java.awt.Color(255, 255, 153));
+        jPanel4.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 130, 30));
 
         jSplitPane1.setLeftComponent(jPanel4);
 
@@ -572,32 +607,154 @@ void showDate() {
 
         rrr.add(sell, "card5");
 
-        mill.setBackground(new java.awt.Color(0, 0, 0));
+        mill.setBackground(new java.awt.Color(153, 153, 0));
         mill.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel15.setText("Contact:");
-        mill.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 80, -1));
-
+        jPanel11.setBackground(new java.awt.Color(153, 153, 153));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        mill.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 900, 280));
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        tab_cust_mill.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Customer ID", "Name", "Location", "Contact4", "Product", "Quantity", "Distribution", "Cash", "Additional Cost", "Total"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tab_cust_mill);
+
+        jPanel11.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1070, 170));
+
+        mill.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 1090, 220));
+
+        jPanel12.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel12.add(m_con, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 170, -1));
+        jPanel12.add(m_loc, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 170, -1));
+        jPanel12.add(m_nam, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 170, -1));
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel19.setText("Customer Name:");
-        mill.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
+        jLabel19.setText("Name:");
+        jPanel12.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel20.setText("Location:");
-        mill.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
-        mill.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 210, -1));
-        mill.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 210, -1));
-        mill.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 210, -1));
+        jPanel12.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel15.setText("Contact:");
+        jPanel12.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 80, -1));
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel12.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 20, 310));
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel27.setText("Product:");
+        jPanel12.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 80, -1));
+        jPanel12.add(m_ca, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 120, 30));
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel28.setText("Cash:");
+        jPanel12.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 90, 30));
+
+        jLabel40.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel40.setText("Distribution:");
+        jPanel12.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 100, 40));
+
+        jLabel41.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel41.setText("Cost");
+        jPanel12.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 110, 20));
+        jPanel12.add(m_addc, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 120, 30));
+
+        jLabel42.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel42.setText("Additional:");
+        jPanel12.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 110, 30));
+
+        m_dis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel12.add(m_dis, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 140, 30));
+
+        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel43.setText("Type");
+        jPanel12.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 90, 20));
+        jPanel12.add(m_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 170, -1));
+
+        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel44.setText("Status:");
+        jPanel12.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 90, 30));
+
+        m_qua.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+        jPanel12.add(m_qua, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 170, -1));
+
+        tab_sched.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Schedule ID", "Customer ID", "Product", "Quantity", "Date", "Time", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tab_sched);
+
+        jPanel12.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 710, 290));
+        jPanel12.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 730, -1));
+
+        jButton2.setText("Cancel");
+        jPanel12.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 120, 30));
+
+        jButton3.setText("Save");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel12.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 120, 30));
+
+        sta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel12.add(sta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 140, -1));
+
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel45.setText("Quantity:");
+        jPanel12.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 90, 30));
+
+        mill.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1090, 430));
 
         rrr.add(mill, "card6");
 
@@ -613,7 +770,7 @@ void showDate() {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -633,7 +790,7 @@ void showDate() {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1343, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -755,7 +912,7 @@ void showDate() {
         String ty =type.getSelectedItem().toString();
        
         int p2 =Integer.parseInt(comb_qty.getSelectedItem().toString());
-        String date = date1.getText();   
+        String date = time.getText();   
        
         int T1=tab_product.getSelectedRow();
 
@@ -864,6 +1021,10 @@ void showDate() {
       customers();
     }//GEN-LAST:event_lnKeyPressed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       m_customer();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -908,10 +1069,12 @@ void showDate() {
     private javax.swing.JComboBox<String> comb_cit;
     private javax.swing.JComboBox<String> comb_qty;
     private javax.swing.JTextField cost;
-    private javax.swing.JLabel date1;
+    private javax.swing.JLabel date;
     private javax.swing.JTextField fn;
     private javax.swing.JPanel home;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -933,6 +1096,8 @@ void showDate() {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -946,6 +1111,12 @@ void showDate() {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -954,6 +1125,7 @@ void showDate() {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -964,20 +1136,33 @@ void showDate() {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField ln;
     private javax.swing.JTextField locat;
     private javax.swing.JTextField lpro;
+    private javax.swing.JTextField m_addc;
+    private javax.swing.JTextField m_ca;
+    private javax.swing.JTextField m_con;
+    private javax.swing.JComboBox<String> m_dis;
+    private javax.swing.JTextField m_loc;
+    private javax.swing.JTextField m_nam;
+    private javax.swing.JTextField m_pro;
+    private javax.swing.JComboBox<String> m_qua;
     private javax.swing.JPanel mill;
     private javax.swing.JPanel rrr;
     private javax.swing.JPanel sell;
+    private javax.swing.JComboBox<String> sta;
+    private javax.swing.JTable tab_cust_mill;
     private javax.swing.JTable tab_customer;
     private javax.swing.JTable tab_product;
+    private javax.swing.JTable tab_sched;
+    private javax.swing.JLabel time;
     private javax.swing.JLabel tots;
     private javax.swing.JComboBox<String> type;
     // End of variables declaration//GEN-END:variables
@@ -1095,6 +1280,62 @@ try {
         } catch (SQLException ex) {
             Logger.getLogger(cashiering.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+    }
+
+    private void m_customer() {
+
+        String n = m_nam.getText();
+        String l = m_loc.getText();
+        String c = m_con.getText();
+        String p = m_pro.getText();
+        String q = m_qua.getSelectedItem().toString();
+        String d = m_dis.getSelectedItem().toString();
+        String c1 = m_ca.getText();
+        String ad = m_addc.getText();
+        String da = date.getText();
+        String ti = time.getText();
+        String st = sta.getSelectedItem().toString();
+       int t1 = 0;
+        
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String conURL="jdbc:mysql://localhost/system?"
+            + "user=root&password=";
+           Connection con2= DriverManager.getConnection(conURL);
+            
+            PreparedStatement pro0=(PreparedStatement) con2.prepareStatement("insert into `m_customers`(`m_name`,`m_location`,`m_contact`,`m_pro`,`m_qua`,`m_dis`,`m_cash`,`m_addco`,`m_total`)"
+                         + "values ('"+n+"','"+l+"','"+c+"','"+p+"','"+q+"','"+d+"','"+c1+"','"+ad+"','"+t1+"');");
+                 pro0.executeUpdate();
+                 
+                 Statement stmt5 = con2.createStatement();
+                 String id = "SELECT * FROM `m_customers` WHERE m_pro='"+p+"'";
+                 ResultSet rs5 = stmt5.executeQuery(id);
+                 rs5.next();
+
+                 int custID = rs5.getInt("m_cust_id");
+            
+                PreparedStatement pro1=(PreparedStatement) con2.prepareStatement("insert into `schedule`(`m_cust_id`,`m_pro`,`m_quant`,`Time`,`Date`,`m_status`)"
+                         + "values ('"+custID+"','"+p+"','"+q+"','"+ti+"','"+da+"','"+st+"');");
+                 pro1.executeUpdate();
+            
+                 
+                 JOptionPane.showMessageDialog(rootPane, "Successfuly Sceduled ");
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(cashiering.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(cashiering.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+     
+
+
+
+
+
 
     }
 }
