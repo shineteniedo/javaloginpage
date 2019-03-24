@@ -17,11 +17,11 @@ public DefaultTableModel CustModel= new javax.swing.table.DefaultTableModel(
 
     },
     new String [] {
-        "Customer ID","First name", "Lasst name", "Location" ,"City","Cash", "Additional Type", "Additional cost", "Total", "Date"
+        "Customer ID","First name", "Lasst name", "Location","City","Cash", "Additional Type", "Additional cost", "Total", "Date"
     }
 ){
     boolean[] canEdit = new boolean [] {
-        false, false, false, false, false, false, false
+        false, false, false, false, false, false, false, false, false, false
     };
 
     public boolean isCellEditable(int rowIndex, int columnIndex) {
