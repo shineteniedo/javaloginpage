@@ -1313,14 +1313,15 @@ try {
                  String id = "SELECT * FROM `m_customers` WHERE m_pro='"+p+"'";
                  ResultSet rs5 = stmt5.executeQuery(id);
                  rs5.next();
-
+            if(rs5.next){
+            
                  int custID = rs5.getInt("m_cust_id");
             
                 PreparedStatement pro1=(PreparedStatement) con2.prepareStatement("insert into `schedule`(`m_cust_id`,`m_pro`,`m_quant`,`Time`,`Date`,`m_status`)"
                          + "values ('"+custID+"','"+p+"','"+q+"','"+ti+"','"+da+"','"+st+"');");
                  pro1.executeUpdate();
             
-                 
+            }
                  JOptionPane.showMessageDialog(rootPane, "Successfuly Sceduled ");
             
         } catch (ClassNotFoundException ex) {
